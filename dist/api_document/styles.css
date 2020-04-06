@@ -1,0 +1,226 @@
+.row {
+    padding: 0.5rem 1rem;
+}
+
+hr {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.left-solid-border {
+    /* padding-left: 5px;
+    border-left: 10px solid green */
+}
+
+.right-solid-border {
+    /* padding-right: 5px;
+    border-right: 10px solid green; */
+}
+
+.h-line {
+    height: 2px;
+    width: 100%;
+    background-color: gray;
+}
+
+.project-title {
+    display: flex;
+    justify-content: center;
+}
+
+.project-title p {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.authentication {
+    margin: 0 0 16px 0;
+}
+
+.authentication p {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.role-title {
+    width: 100%;
+    padding: 10px 0px 0px 15px;
+    font-size: 28px;
+    font-weight: 500;
+    color: white;
+    background-color: rgb(82, 72, 72);
+}
+
+.request {
+    margin: 10px 0px 100px 0px;
+    border: 1px solid lightgray;
+    border-radius: 0.6rem;
+    padding: 20px 10px;
+    position: relative;
+}
+
+.request-header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.request-title {
+    border-radius: 0.6rem 0.6rem 0rem 0rem;
+    padding: 0.6rem;
+    word-break: break-word;
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(117, 106, 106);
+    width: 100%;
+}
+
+.request-title span {
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 5px;
+    text-transform: uppercase;
+    color: #f5a623;
+}
+
+.optional {
+    font-style: italic;
+    font-weight: 800;
+}
+
+.url {
+    word-break: break-all;
+    background-color: rgb(189, 170, 170);
+    border: 1px solid #e6e6e6;
+    padding: 6px 10px;
+    width: 100%;
+    font-size: 14px;
+    color: #282828;
+    background-color: #f8f8f8;
+}
+
+.headers {
+    margin: 7rem 0rem 1rem 0rem;
+    padding: 0;
+}
+
+.body {
+    margin: 1.5rem 0rem 2.8rem 0rem;
+    padding: 0;
+}
+
+.response {
+    margin: 1rem 0rem;
+    padding: 0;
+}
+
+.headers .row {
+    padding: 0;
+    padding-left: 0.5rem;
+}
+
+.response p,
+.body p,
+.headers p {
+    line-height: 24px;
+    margin: 0;
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #282828;
+}
+
+.response .key,
+.body .key,
+.headers .key {
+    color: #282828;
+    line-height: 24px;
+    padding-right: 10px;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.response .value,
+.body .value,
+.headers .value {
+    color: #282828;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.description {
+    background-color: rgb(202, 182, 154);
+    min-height: 40px;
+    max-height: 50px;
+    padding: 10px;
+    color: rgb(46, 31, 58);
+    font-size: 12px;
+    font-style: italic;
+    overflow-y: auto;
+}
+
+.description strong {
+    font-style: normal
+}
+
+pre {
+    height: 100%;
+    text-transform: none;
+    color: grey;
+    border-radius: 3px;
+    background: #fafafa;
+    border: solid thin #e6e6e6;
+    font-family: Courier, sans-serif;
+}
+
+.menu {
+    position: relative;
+    background-color: #e1e6eb;
+}
+
+.menu div {
+    position: fixed;
+    top: 20% !important;
+    min-width: 10%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .menu div {
+        position: relative;
+        top: 0% !important;
+    }
+}
+
+.menu #linker .heading {
+    text-align: center !important;
+    padding-top: 5px !important;
+}
+
+.menu #linker a:first-of-type {
+    border-top: 2px solid rgb(37, 36, 36);
+}
+
+.highlight {
+    background-color: rgb(245, 175, 45);
+    color: white !important;
+}
+
+.menu #linker a {
+    padding-left: 10% !important;
+    text-decoration: none;
+    padding: 10px;
+    border-bottom: 1px solid rgb(37, 36, 36);
+    color: black;
+}
+
+.menu #linker a :hover() {
+    background-color: gray !important;
+    color: white !important;
+}
