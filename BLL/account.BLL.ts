@@ -1,5 +1,4 @@
 import { AccountDAL } from "../DAL/account.DAL";
-import { IUserModel } from "../DAL/models/user.model";
 import { ACCOUNT_STATUS } from "../enums/account-status.enum";
 import { HTTP_STATUS_CODE } from "../enums/http-status-code.enum";
 import { USER_ROLE } from "../enums/roles.enum";
@@ -10,6 +9,7 @@ import { EmailService } from "../PL/services/email.service";
 import { CommonError } from "../services/common-errors.service";
 import { Password } from "./services/password.service";
 import { Token } from "./services/token.service";
+import { IUserModel } from "../DAL/document-models/user.model";
 
 export class AccountBLL {
 

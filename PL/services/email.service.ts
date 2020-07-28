@@ -1,8 +1,8 @@
 import nodeMailer from "nodemailer";
 import { Token } from "../../BLL/services/token.service";
-import { IUserModel } from "../../DAL/models/user.model";
 import { environment } from "../../environment/environment";
 import { IContactUsModel } from "../../interfaces/contact-us..model";
+import { IUserModel } from "../../DAL/document-models/user.model";
 
 interface IMailOptions {
     from: string

@@ -1,5 +1,5 @@
 import { model, Schema } from "mongoose";
-import { ILogModel } from "../models/log.model";
+import { ILogModel } from "../document-models/log.model";
 
 const logSchema = new Schema({
     request_status: String,

@@ -1,6 +1,6 @@
 import express from "express";
 import { AccountBLL } from "../BLL/account.BLL";
-import { IUserModel } from "../DAL/models/user.model";
+import { IUserModel } from "../DAL/document-models/user.model";
 import { HTTP_STATUS_CODE } from "../enums/http-status-code.enum";
 import { ILogin } from "../interfaces/login.model";
 import { ApiResponse } from "../interfaces/response.model";

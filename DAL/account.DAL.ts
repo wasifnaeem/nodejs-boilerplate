@@ -1,6 +1,6 @@
-import { UserSchema } from "./collections/user.collection";
-import { IUserModel } from "./models/user.model";
 import { ACCOUNT_STATUS } from "../enums/account-status.enum";
+import { UserSchema } from "./collections/user.collection";
+import { IUserModel } from "./document-models/user.model";
 
 export class AccountDAL {
 
@@ -31,19 +31,10 @@ export class AccountDAL {
                     first_name: 1,
                     last_name: 1,
                     password: 1,
-                    dob: 1,
-                    gender: 1,
                     email: 1,
                     role: 1,
                     account_status: 1,
-                    club_or_team: 1,
                     profile_image_url: 1,
-                    height: 1,
-                    weight: 1,
-                    address: 1,
-                    experience: 1,
-                    connections: 1,
-                    notifications: 1
                 }
             })
     }

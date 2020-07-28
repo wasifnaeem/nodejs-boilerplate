@@ -1,6 +1,6 @@
 import { Request } from "express";
 import { LogDAL } from "../DAL/log.DAL";
-import { ILogModel } from "../DAL/models/log.model";
+import { ILogModel } from "../DAL/document-models/log.model";
 import { ApiResponse } from "../interfaces/response.model";
 
 export class LogBLL {
