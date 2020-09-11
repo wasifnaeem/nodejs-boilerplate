@@ -2,7 +2,6 @@ import { NextFunction, Request, Response } from "express";
 import { HTTP_STATUS_CODE } from "../../enums/http-status-code.enum";
 import { ApiResponse } from "../../interfaces/response.model";
 import { CommonError } from "../../services/common-errors.service";
-import { FinalResponse } from "./client-response.service";
 import { WinstonLog } from "./winston-logger.service";
 
 export class ExceptionHandlerService {
@@ -109,7 +108,7 @@ export class ExceptionHandlerService {
 
         if (error) {
             WinstonLog.error(error)
-            return res.status(response.statusCode).send(FinalResponse(response))
+            return res.status(response.statusCode).send(response)
         }
 
         next()

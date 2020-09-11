@@ -7,7 +7,6 @@ import { ApiResponse } from "../interfaces/response.model";
 import { verifyApiKey } from "./middlewares/api-key.middleware";
 import { verifyUserRole } from "./middlewares/role-verify.middleware";
 import { verifyToken } from "./middlewares/token.middleware";
-import { FinalResponse } from "./services/client-response.service";
 import { EmailService } from "./services/email.service";
 
 class AccountPL {
@@ -21,15 +20,10 @@ class AccountPL {
     }
 
     routes() {
-        this.router.post('verify-login', verifyToken, async (req, res) => {
-            console.log('----------VERIFYING THE LOGIN----------')
-            res.status(200).send(true)
-        })
-
         this.router.post('/send-account-activation-email', verifyApiKey, async (req, res) => {
             let email: string = req.body.email
             let response = await new AccountBLL().sendAccountActivationEmail(email)
-            res.status(response.statusCode).send(FinalResponse(response))
+            res.status(response.statusCode).send(response)
         })
 
         this.router.post('/login', verifyApiKey, async (req, res) => {
@@ -40,7 +34,7 @@ class AccountPL {
 
             let response: ApiResponse<any>
             response = await new AccountBLL().Login(login)
-            res.status(response.statusCode).send(FinalResponse(response))
+            res.status(response.statusCode).send(response)
         })
 
         this.router.post('/signup', verifyApiKey, verifyUserRole, async (req, res, next) => {
@@ -61,7 +55,7 @@ class AccountPL {
             user.password = undefined
             user.account_created = undefined
 
-            res.status(response.statusCode).send(FinalResponse(response))
+            res.status(response.statusCode).send(response)
         })
 
         this.router.post('/activate-account', verifyToken, async (req, res) => {
@@ -69,14 +63,14 @@ class AccountPL {
             let role: string = req.headers.role.toString()
 
             let response = await new AccountBLL().activateAccount(_id)
-            res.status(response.statusCode).send(FinalResponse(response))
+            res.status(response.statusCode).send(response)
         })
 
         this.router.post('/send-password-recovery-email', async (req, res) => {
             let email: string = req.body.email.toString()
 
             let response = await new AccountBLL().sendPasswordRecoveryEmail(email)
-            res.status(response.statusCode).send(FinalResponse(response))
+            res.status(response.statusCode).send(response)
         })
 
         this.router.post('/recover-password', verifyToken, async (req, res) => {
@@ -85,7 +79,7 @@ class AccountPL {
             let password: string = req.body.password
 
             let response = await new AccountBLL().recoverPassword(user_id, password)
-            res.status(response.statusCode).send(FinalResponse(response))
+            res.status(response.statusCode).send(response)
         })
 
         this.router.post('/change-account-status', verifyToken, async (req, res) => {
@@ -94,7 +88,7 @@ class AccountPL {
             let account_status: string = req.body.account_status
 
             let response = await new AccountBLL().updateAccountStatus(user_id, account_status)
-            res.status(response.statusCode).send(FinalResponse(response))
+            res.status(response.statusCode).send(response)
         })
 
         this.router.post('/delete-account', verifyToken, async (req, res) => {
@@ -102,7 +96,7 @@ class AccountPL {
             let _id: string = req.body._id
 
             let response = await new AccountBLL().deleteAccount(_id)
-            res.status(response.statusCode).send(FinalResponse(response))
+            res.status(response.statusCode).send(response)
         })
     }
 }

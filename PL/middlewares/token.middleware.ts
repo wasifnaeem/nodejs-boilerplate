@@ -3,7 +3,6 @@ import { Token } from "../../BLL/services/token.service";
 import { USER_ROLE } from "../../enums/roles.enum";
 import { ApiResponse } from "../../interfaces/response.model";
 import { CommonError } from "../../services/common-errors.service";
-import { FinalResponse } from "../services/client-response.service";
 import { WinstonLog } from "../services/winston-logger.service";
 
 export function verifyToken(req: Request, res: Response, next: NextFunction) {
@@ -13,13 +12,13 @@ export function verifyToken(req: Request, res: Response, next: NextFunction) {
         WinstonLog.error('Token not provided', { headers: req.headers })
 
         response = CommonError.Login()
-        return res.status(response.statusCode).send(FinalResponse(response))
+        return res.status(response.statusCode).send(response)
     }
 
     let payLoad = new Token().verify(req)
     if (payLoad._id == undefined || payLoad._id == null || !USER_ROLE[payLoad.role]) {
         response = CommonError.Login()
-        return res.status(response.statusCode).send(FinalResponse(response))
+        return res.status(response.statusCode).send(response)
     }
 
     req.headers._id = payLoad._id

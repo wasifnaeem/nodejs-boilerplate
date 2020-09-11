@@ -1,7 +1,6 @@
 import nodeMailer from "nodemailer";
 import { Token } from "../../BLL/services/token.service";
 import { environment } from "../../environment/environment";
-import { IContactUsModel } from "../../interfaces/contact-us..model";
 import { IUserModel } from "../../DAL/document-models/user.model";
 
 interface IMailOptions {
@@ -59,32 +58,7 @@ export class EmailService {
         return this.send(mailOptions)
     }
 
-    // when user sends message using contact-us forms
-    sendMessageToAdmin(contact: IContactUsModel) {
-        let mailOptions: IMailOptions = {
-            from: MAIL_SENDER.from, // sender address
-            to: `info@bowlistics.pk`, // list of receivers
-            bcc: `wasif.naeem786@gmail.com`,
-            subject: `${contact.subject}`, // Subject line
-            text: "Here is your text", // plain text body
-            html: `
-                <div>
-                <p><b>User details:</b></p>
-                <p><b>Name</b>: ${contact.sender_name}</p>
-                <p><b>Role</b>: ${contact.sender_role}</p>
-                <p><b>Email</b>: ${contact.sender_email}</p>
-                <hr>
-                <p><b>Message</b></p>
-                ${contact.message}
-                </div>
-                `
-        };
-
-        return this.send(mailOptions)
-    }
-
     sendAccountVerificationMail(user: IUserModel) {
-
         let token = new Token().create(user._id, user.role)
         let activationLink = `${environment.clientBaseURL}/activate-account/${token}`
 

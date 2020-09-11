@@ -7,14 +7,3 @@ export interface ApiResponse<T> {
     data?: T
     token?: string
 }
-
-export interface ISendResponse {
-    status: number
-    statusMessage?: string
-    message?: string
-    response: {
-        data?: any
-        role?: USER_ROLE
-        token?: string
-    }
-}
