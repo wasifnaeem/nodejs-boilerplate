@@ -1,7 +1,6 @@
 import { Router } from "express";
 import { LogBLL } from "../BLL/log.BLL";
 import { verifyToken } from "./middlewares/token.middleware";
-import { FinalResponse } from "./services/client-response.service";
 
 export class LogPL {
 
@@ -18,7 +17,7 @@ export class LogPL {
             let logs_per_page: number = req.body.logs_per_page
 
             let response = await new LogBLL().getLogs(logs_per_page, page_number)
-            res.status(response.statusCode).send(FinalResponse(response))
+            res.status(response.statusCode).send(response)
         })
     }
 }
